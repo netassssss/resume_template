@@ -5,6 +5,20 @@
       <template slot="body">
         <objective @advancePage="advancePage" :show="page === 0"/>
       </template>
+      <template slot="actions">
+        <lazy-hydrate when-visible>
+          <div class="modal-actions" :class="{'advance-btn' : page === 0}">
+            <resume-button
+              btn-text="Back"
+              @click="reducePage"
+              button-style="cancel"
+              v-if="page > 0"/>
+            <resume-button
+              btn-text="Continue"
+              @click="advancePage"/>
+          </div>
+        </lazy-hydrate>
+      </template>
     </resume-modal>
     <lazy-hydrate when-visible v-if="!showModal">
       <resume-button btnText="Start the progress!" @click="openModal"/>
@@ -17,7 +31,7 @@ import { mapGetters } from 'vuex';
 import LazyHydrate from 'vue-lazy-hydration';
 import ResumeModal from '../../components/ResumeModal.vue';
 import { modalHeader, STORE_NAME } from './store/const';
-import { advancePage } from './store/actions';
+import { advancePage, resetPage, reducePage } from './store/actions';
 
 export default {
   components: {
@@ -45,14 +59,27 @@ export default {
     },
     closeModal() {
       this.showModal = false;
+      this.$store.dispatch(resetPage);
     },
     advancePage() {
       this.$store.dispatch(advancePage);
+    },
+    reducePage() {
+      this.$store.dispatch(reducePage);
     },
   },
 };
 </script>
 
 <style scoped lang="scss">
-
+  .modal-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+  }
+  .advance-btn {
+    justify-content: flex-end;
+  }
 </style>

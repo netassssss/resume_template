@@ -11,6 +11,13 @@ const actions = {
     const { pageNum } = state;
     commit('SET_PAGE_NUM', pageNum + 1);
   },
+  reducePage({ commit, state }) {
+    const { pageNum } = state;
+    commit('SET_PAGE_NUM', pageNum - 1);
+  },
+  resetPage({ commit }) {
+    commit('SET_PAGE_NUM', 0);
+  },
 };
 
 const mutations = {

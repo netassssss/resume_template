@@ -5,10 +5,10 @@
       :key="si" class="skill-item-wrapper" :class="classWrapper">
       <div class="skill-item-title" :class="classHeader">{{ skill }}</div>
       <div class="skill-item">
-        <div v-for="(num1, i1) in getSkillLevel(skill)" :key="i1">
+        <div v-for="(num1, i1) in getSkillLevel(skill)" :key="createKey(i1)">
           <div class="circle"></div>
         </div>
-        <div v-for="(num2, i2) in getReverseLevel(skill)" :key="i2">
+        <div v-for="(num2, i2) in getReverseLevel(skill)" :key="createKey(i2)">
           <div class="circle-empty"></div>
         </div>
       </div>
@@ -49,6 +49,9 @@ export default {
     },
     getReverseLevel(skill) {
       return 5 - this.skills[skill];
+    },
+    createKey(index) {
+      return `${index}-${Math.ceil(Math.random() * 1000)}`;
     },
   },
 };

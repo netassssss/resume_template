@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Overview from '../pages/Overview/Overview.vue';
+/* eslint max-len: 0 */
+// webpack named chunk for lazy loading: const Foo = () => import(/* webpackChunkName: "group-foo" */ './Foo.vue')
+const Overview = () => import(/* webpackChunkName: "group-foo" */ '../pages/Overview/Overview.vue');
 
 Vue.use(VueRouter);
 

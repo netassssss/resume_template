@@ -1,9 +1,11 @@
 const initialState = {
   pageNum: 0,
+  objective: '',
 };
 
 const getters = {
   page: (state) => state.pageNum,
+  objective: (state) => state.objective,
 };
 
 const actions = {
@@ -18,11 +20,17 @@ const actions = {
   resetPage({ commit }) {
     commit('SET_PAGE_NUM', 0);
   },
+  updateObjective({ commit }, { text } = { text: '' }) {
+    commit('SET_OBJECTIVE_TEXT', text);
+  },
 };
 
 const mutations = {
   SET_PAGE_NUM(state, page) {
     state.pageNum = page;
+  },
+  SET_OBJECTIVE_TEXT(state, text) {
+    state.objective = text;
   },
 };
 

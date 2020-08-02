@@ -3,7 +3,11 @@
     <resume-modal :show="showModal" @close="closeModal">
       <template slot="header">{{ modalHeader[page] }}</template>
       <template slot="body">
-        <objective @advancePage="advancePage" :show="page === 0"/>
+        <objective
+          @advancePage="advancePage"
+          :show="page === 0"
+          @update="updateObjective"
+          :objective="objective"/>
       </template>
       <template slot="actions">
         <lazy-hydrate when-visible>
@@ -31,7 +35,12 @@ import { mapGetters } from 'vuex';
 import LazyHydrate from 'vue-lazy-hydration';
 import ResumeModal from '../../components/ResumeModal.vue';
 import { modalHeader, STORE_NAME } from './store/const';
-import { advancePage, resetPage, reducePage } from './store/actions';
+import {
+  advancePage,
+  resetPage,
+  reducePage,
+  updateObjective,
+} from './store/actions';
 
 export default {
   components: {
@@ -45,6 +54,7 @@ export default {
   computed: {
     ...mapGetters({
       page: `${STORE_NAME}/page`,
+      objective: `${STORE_NAME}/objective`,
     }),
   },
   data() {
@@ -66,6 +76,9 @@ export default {
     },
     reducePage() {
       this.$store.dispatch(reducePage);
+    },
+    updateObjective(text) {
+      this.$store.dispatch(updateObjective, { text });
     },
   },
 };

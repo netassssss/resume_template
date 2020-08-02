@@ -1,7 +1,13 @@
 <template>
   <div class="objective-container" v-if="show">
     <label for="objective" class="objective-label">Describe yourself in few words</label>
-    <textarea id="objective" rows="10" cols="50" class="objective-text-area"/>
+    <textarea
+      id="objective"
+      rows="10"
+      cols="50"
+      class="objective-text-area"
+      :value="objective"
+      @input="updateObjectiveText"/>
   </div>
 </template>
 
@@ -13,6 +19,25 @@ export default {
       type: Boolean,
       required: true,
     },
+    objective: {
+      type: String,
+      default: '',
+    },
+  },
+  data() {
+    return {
+      timer: null,
+    };
+  },
+  methods: {
+    updateObjectiveText(event) {
+      this.timer = setTimeout(() => {
+        this.$emit('update', event.target.value);
+      }, 300);
+    },
+  },
+  destroyed() {
+    if (this.timer) clearTimeout(this.timer);
   },
 };
 </script>

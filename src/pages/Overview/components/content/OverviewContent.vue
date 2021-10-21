@@ -53,15 +53,21 @@ export default {
 <style scoped lang="scss">
   @import "../../../../style/colors";
   .overview-content-wrapper {
+    grid-area: overview-content-wrapper;
+    display: grid;
+    grid-template-columns: 1fr 32rem;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "overview-content-container overview-right-side";
     width: 100%;
     height: 100%;
-    display: flex;
   }
   .overview-content-container {
-    width: calc(61% - 20px);
+    grid-area: overview-content-container;
     height: 100%;
     background-color: $basic_content;
-    padding: 24px;
+    padding-left: 1rem;
+    padding-top: 1rem;
     .experience-cotnainer {
       width: 100%;
       height: 40px;
@@ -79,8 +85,7 @@ export default {
     }
   }
   .overview-right-side {
-    width: 35%;
-    padding-left: 24px;
+    grid-area: overview-right-side;
     display: flex;
     flex-direction: column;
     justify-content: center;

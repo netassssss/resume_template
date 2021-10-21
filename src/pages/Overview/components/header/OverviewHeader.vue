@@ -19,10 +19,13 @@ export default {
 
 <style scoped lang="scss">
   .overview-header-container {
+    grid-area: overview-header-container;
     @import "../../../../style/colors";
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 32rem;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "header-left-container header-container-right";
   }
 </style>

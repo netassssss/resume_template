@@ -1,5 +1,6 @@
 <template>
   <div class="skills-container">
+    <div class="separate-line"></div>
     <div class="skills-header">
       <img :src="skills" class="skills-icon"/>
       <div class="skills-title">Skills</div>
@@ -30,8 +31,14 @@ export default {
   @import "../../../../style/colors";
   .skills-container {
     width: 100%;
-    border-top: 1px solid $basic_header_color;
     margin-top: -1px;
+    padding-left: 1rem;
+    .separate-line {
+      background: $basic_header_color;
+      width: calc(100% + 1rem);
+      height: 1px;
+      margin-left: -1rem;
+    }
     .skills-header {
       width: 100%;
       height: 30px;

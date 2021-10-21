@@ -18,9 +18,9 @@ class JsPdfOptions {
 
 class HTML2CanvasOptions {
   constructor() {
-    this.scale = 2;
-    this.width = 1350;
-    this.height = 1755;
+    this.scale = 1.5;
+    this.width = 1440;
+    this.height = 1597;
     this.x = 0;
     this.y = 0;
     this.imageTimeout = 2000;

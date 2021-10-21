@@ -3,12 +3,12 @@
     <resume-modal :show="showModal" @close="closeModal">
       <template slot="header">{{ modalHeader[page] }}</template>
       <template slot="body">
-        <component
-        :is="currentComponent"
-        @advancePage="advancePage"
-        :show="showComponent"
-        @update="updateObjective"
-        :objective="objective"/>
+<!--        <component-->
+<!--        :is="currentComponent"-->
+<!--        @advancePage="advancePage"-->
+<!--        :show="showComponent"-->
+<!--        @update="updateObjective"-->
+<!--        :objective="objective"/>-->
       </template>
       <template slot="actions">
         <lazy-hydrate when-visible>
@@ -35,10 +35,10 @@
 import { mapGetters } from 'vuex';
 import LazyHydrate from 'vue-lazy-hydration';
 import ResumeModal from '../../components/ResumeModal.vue';
-import compManager from './utils/componentManager';
+// import compManager from './utils/componentManager';
 import { modalHeader, STORE_NAME } from './store/const';
 import {
-  advancePage,
+  // advancePage,
   resetPage,
   reducePage,
   updateObjective,
@@ -51,19 +51,19 @@ export default {
     ResumeButton: () => import('../../components/ResumeButton.vue'),
 
     // parts
-    Objective: () => import('./components/Objective.vue'),
+    // Objective: () => import('./components/Objective.vue'),
   },
   computed: {
     ...mapGetters({
       page: `${STORE_NAME}/page`,
       objective: `${STORE_NAME}/objective`,
     }),
-    currentComponent() {
-      return compManager.getComponent(this.page);
-    },
-    showComponent() {
-      return compManager.showComponent(this.page);
-    },
+    // currentComponent() {
+    //   return compManager.getComponent(this.page);
+    // },
+    // showComponent() {
+    //   return compManager.showComponent(this.page);
+    // },
   },
   data() {
     return {
@@ -79,9 +79,9 @@ export default {
       this.showModal = false;
       this.$store.dispatch(resetPage);
     },
-    advancePage() {
-      if (compManager.shouldAdvance(this.page)) this.$store.dispatch(advancePage);
-    },
+    // advancePage() {
+    //   if (compManager.shouldAdvance(this.page)) this.$store.dispatch(advancePage);
+    // },
     reducePage() {
       this.$store.dispatch(reducePage);
     },

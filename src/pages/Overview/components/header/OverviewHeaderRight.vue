@@ -44,10 +44,9 @@ export default {
 <style scoped lang="scss">
 @import "../../../../style/colors";
 .header-container {
-  width: 35%;
-  padding: 0 24px;
-  display: flex;
-  justify-content: flex-end;
+  grid-area: header-container-right;
+  height: 9rem;
+  padding-left: 1rem;
   .location-container {
     width: 100%;
     height: 100%;

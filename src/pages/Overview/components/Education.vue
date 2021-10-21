@@ -31,11 +31,9 @@ export default {
 <style scoped lang="scss">
   @import "../../../style/colors";
   .education-container {
-    display: flex;
     width: 100%;
     height: 100%;
-    align-items: center;
-    flex-wrap: wrap;
+    padding-top: 1rem;
     .education-header {
       width: 100%;
       height: 40px;

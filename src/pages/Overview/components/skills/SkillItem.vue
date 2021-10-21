@@ -77,6 +77,9 @@ export default {
       height: 30px;
       padding: 26px 5px 0 0;
       position: relative;
+      &:nth-child(even) {
+        padding-left: 1rem;
+      }
       .skill-item-title {
         width: 85px;
       }

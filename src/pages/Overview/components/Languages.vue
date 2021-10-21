@@ -35,6 +35,7 @@ export default {
     width: 100%;
     height: 100%;
     margin-top: 64px;
+    padding-left: 1rem;
     .languages-header {
       width: 100%;
       height: 40px;
@@ -60,5 +61,8 @@ export default {
   }
   .class-wrapper {
     padding-right: 64px !important;
+    &:nth-child(even) {
+      padding-left: 0 !important;
+    }
   }
 </style>

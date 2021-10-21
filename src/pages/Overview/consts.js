@@ -11,8 +11,14 @@ export const personDescription = 'Full Stack Developer';
 export const workResume = [
   {
     [workTypes.header]: 'Senior Full Stack Developer',
+    [workTypes.company]: 'Tailor Brands',
+    [workTypes.length]: 'October 2020 - Present',
+    [workTypes.content]: 'Developing one stop shop for small businesses (Logos, Digital business cards, sites, LLC and more). The platform is written in Emberjs (Front), Ruby on rails and Golang (Server side).',
+  },
+  {
+    [workTypes.header]: 'Senior Full Stack Developer',
     [workTypes.company]: 'Namogoo',
-    [workTypes.length]: 'June 2017 - Present',
+    [workTypes.length]: 'June 2017 - October 2020',
     [workTypes.content]: 'Developing Dashboards from scratch, both client and server sides, using Vuejs and Nodejs. The product prevents customer hijacking for an e-commerce client. My role included designing and code-writing of the dashboards for those clients.',
   },
   {
@@ -59,6 +65,9 @@ export const skills = {
   'Javascript': 5,
   'VueJs': 5,
   'NodeJS': 4,
+  'Golang': 4,
+  'Ruby on Rails': 4,
+  'EmberJS': 4,
   'AngularJS': 5,
   'Typescript': 4,
   'HTML5': 5,

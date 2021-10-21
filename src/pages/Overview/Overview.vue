@@ -2,7 +2,9 @@
   <div class="overview-container" id="convertMe">
     <overview-header />
     <overview-content />
-    <button id="ignorePDF" v-if="showBtn" @click="createPDF">Save</button>
+    <div class="save-pdf" v-if="showBtn">
+      <button id="ignorePDF" @click="createPDF">Save</button>
+    </div>
   </div>
 </template>
 
@@ -27,7 +29,7 @@ export default {
     this.showBtn = false;
       setTimeout(async () => {
         const source = window.document.getElementById('app');
-        const pdfCreator = new JsPdfCreator(source, 'Neta_Seesam_test_2020');
+        const pdfCreator = new JsPdfCreator(source, 'Neta_Seesam_2021');
         await pdfCreator.savePdf();
         this.showBtn = true;
     }, 0);
@@ -39,5 +41,13 @@ export default {
 <style scoped lang="scss">
   .overview-container {
     font-family: sans-serif;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 9rem 1fr 2rem;
+    grid-template-areas:
+      "overview-header-container"
+      "overview-content-wrapper"
+      "save-pdf";
   }
 </style>
